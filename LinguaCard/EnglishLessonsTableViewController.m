@@ -77,7 +77,7 @@
     
     NSManagedObject *note = [self.notes objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [note valueForKey:@"name"]]];
-   
+    
     return cell;
 }
 

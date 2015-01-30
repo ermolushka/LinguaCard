@@ -39,7 +39,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="NdT-nI-T6n" kind="show" identifier="showCard" id="JE4-dL-Ive"/>
+                                    <segue destination="D1j-NR-WBF" kind="show" identifier="showCard" id="I4M-xq-TfS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -60,11 +60,71 @@
             </objects>
             <point key="canvasLocation" x="1389" y="405"/>
         </scene>
+        <!--Cards Scroll View Controller-->
+        <scene sceneID="cDi-ue-prm">
+            <objects>
+                <viewController id="D1j-NR-WBF" customClass="CardsScrollViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3fe-Lt-SH1"/>
+                        <viewControllerLayoutGuide type="bottom" id="E66-Gj-Mso"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ver-Ed-lf2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="7sZ-PU-bK6">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="800"/>
+                                </variation>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-lK-UYs" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="736"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="D1j-NR-WBF" id="Vwt-Mz-RWs"/>
+                                    <outlet property="delegate" destination="D1j-NR-WBF" id="UaO-vU-RgD"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="7sZ-PU-bK6"/>
+                                <exclude reference="s4m-lK-UYs"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="7sZ-PU-bK6"/>
+                                <include reference="s4m-lK-UYs"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="gAS-nv-g09">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eKV-0k-79s">
+                            <connections>
+                                <segue destination="yaF-sH-Jgs" kind="show" identifier="addCard" id="T7a-Ug-BH0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="carousel" destination="s4m-lK-UYs" id="sbg-CZ-1Db"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-vr-50k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2119.5" y="709.5"/>
+        </scene>
         <!--Cards Table View Controller-->
         <scene sceneID="LgW-T7-VYM">
             <objects>
                 <tableViewController id="NdT-nI-T6n" customClass="CardsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xLs-xY-DNB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -81,16 +141,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="icY-O3-itu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IK6-oP-7b1">
-                            <connections>
-                                <segue destination="yaF-sH-Jgs" kind="show" identifier="addCard" id="oBK-L5-w44"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IK6-oP-7b1"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iwy-6h-lIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119.5" y="695.25"/>
+            <point key="canvasLocation" x="2086.5" y="1305.75"/>
         </scene>
         <!--Add Card View Controller-->
         <scene sceneID="3Nz-Ex-CNP">
@@ -101,6 +157,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XiT-kB-ldD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HuT-la-VPM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4T-Ij-1vb">
@@ -155,6 +212,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GEx-2W-usn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GN5-TL-OyC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8G8-BI-fHt">
@@ -219,4 +277,7 @@
             <point key="canvasLocation" x="471" y="405"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.png" width="50" height="468"/>
+    </resources>
 </document>

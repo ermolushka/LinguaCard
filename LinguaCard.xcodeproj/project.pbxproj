@@ -10,7 +10,6 @@
 		0911F83E1A745AEA0028CDE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F83D1A745AEA0028CDE5 /* main.m */; };
 		0911F8411A745AEA0028CDE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8401A745AEA0028CDE5 /* AppDelegate.m */; };
 		0911F8441A745AEA0028CDE5 /* LinguaCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8421A745AEA0028CDE5 /* LinguaCard.xcdatamodeld */; };
-		0911F8471A745AEA0028CDE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8461A745AEA0028CDE5 /* ViewController.m */; };
 		0911F84A1A745AEA0028CDE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0911F8481A745AEA0028CDE5 /* Main.storyboard */; };
 		0911F84C1A745AEA0028CDE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0911F84B1A745AEA0028CDE5 /* Images.xcassets */; };
 		0911F84F1A745AEA0028CDE5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0911F84D1A745AEA0028CDE5 /* LaunchScreen.xib */; };
@@ -21,6 +20,10 @@
 		0911F8711A745DEC0028CDE5 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8701A745DEC0028CDE5 /* AddCardViewController.m */; };
 		0911F8741A745E780028CDE5 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8731A745E780028CDE5 /* Card.m */; };
 		0911F8771A745E780028CDE5 /* ELesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8761A745E780028CDE5 /* ELesson.m */; };
+		095093371A78207200DAF60C /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095093361A78207200DAF60C /* iCarousel.m */; };
+		0950933C1A7821D400DAF60C /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 0950933B1A7821D400DAF60C /* page.png */; };
+		0950933E1A7823C900DAF60C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0950933D1A7823C900DAF60C /* background.png */; };
+		097615831A7A666800FCCBA2 /* CardsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097615821A7A666800FCCBA2 /* CardsScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,6 @@
 		0911F83F1A745AEA0028CDE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0911F8401A745AEA0028CDE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0911F8431A745AEA0028CDE5 /* LinguaCard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LinguaCard.xcdatamodel; sourceTree = "<group>"; };
-		0911F8451A745AEA0028CDE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0911F8461A745AEA0028CDE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0911F8491A745AEA0028CDE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0911F84B1A745AEA0028CDE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0911F84E1A745AEA0028CDE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +61,12 @@
 		0911F8731A745E780028CDE5 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		0911F8751A745E780028CDE5 /* ELesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELesson.h; sourceTree = "<group>"; };
 		0911F8761A745E780028CDE5 /* ELesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELesson.m; sourceTree = "<group>"; };
+		095093351A78207200DAF60C /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		095093361A78207200DAF60C /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		0950933B1A7821D400DAF60C /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		0950933D1A7823C900DAF60C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		097615811A7A666800FCCBA2 /* CardsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsScrollViewController.h; sourceTree = "<group>"; };
+		097615821A7A666800FCCBA2 /* CardsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +108,12 @@
 		0911F83A1A745AEA0028CDE5 /* LinguaCard */ = {
 			isa = PBXGroup;
 			children = (
+				095093341A78207200DAF60C /* iCarousel */,
 				0911F83F1A745AEA0028CDE5 /* AppDelegate.h */,
 				0911F8401A745AEA0028CDE5 /* AppDelegate.m */,
-				0911F8451A745AEA0028CDE5 /* ViewController.h */,
-				0911F8461A745AEA0028CDE5 /* ViewController.m */,
 				0911F8481A745AEA0028CDE5 /* Main.storyboard */,
+				097615811A7A666800FCCBA2 /* CardsScrollViewController.h */,
+				097615821A7A666800FCCBA2 /* CardsScrollViewController.m */,
 				0911F86A1A745DBB0028CDE5 /* ViewControllers */,
 				0911F86B1A745DC70028CDE5 /* TablewView Controllers */,
 				0911F84B1A745AEA0028CDE5 /* Images.xcassets */,
@@ -166,6 +174,17 @@
 				0911F86D1A745DDA0028CDE5 /* CardsTableViewController.m */,
 			);
 			name = "TablewView Controllers";
+			sourceTree = "<group>";
+		};
+		095093341A78207200DAF60C /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				095093351A78207200DAF60C /* iCarousel.h */,
+				095093361A78207200DAF60C /* iCarousel.m */,
+				0950933B1A7821D400DAF60C /* page.png */,
+				0950933D1A7823C900DAF60C /* background.png */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0950933C1A7821D400DAF60C /* page.png in Resources */,
+				0950933E1A7823C900DAF60C /* background.png in Resources */,
 				0911F84A1A745AEA0028CDE5 /* Main.storyboard in Resources */,
 				0911F84F1A745AEA0028CDE5 /* LaunchScreen.xib in Resources */,
 				0911F84C1A745AEA0028CDE5 /* Images.xcassets in Resources */,
@@ -270,11 +291,12 @@
 			files = (
 				0911F8661A745B540028CDE5 /* AddEnglishLessonViewController.m in Sources */,
 				0911F8411A745AEA0028CDE5 /* AppDelegate.m in Sources */,
+				097615831A7A666800FCCBA2 /* CardsScrollViewController.m in Sources */,
 				0911F8691A745B680028CDE5 /* EnglishLessonsTableViewController.m in Sources */,
 				0911F83E1A745AEA0028CDE5 /* main.m in Sources */,
+				095093371A78207200DAF60C /* iCarousel.m in Sources */,
 				0911F8711A745DEC0028CDE5 /* AddCardViewController.m in Sources */,
 				0911F8741A745E780028CDE5 /* Card.m in Sources */,
-				0911F8471A745AEA0028CDE5 /* ViewController.m in Sources */,
 				0911F8771A745E780028CDE5 /* ELesson.m in Sources */,
 				0911F86E1A745DDA0028CDE5 /* CardsTableViewController.m in Sources */,
 				0911F8441A745AEA0028CDE5 /* LinguaCard.xcdatamodeld in Sources */,
@@ -468,6 +490,7 @@
 				0911F8601A745AEA0028CDE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0911F8611A745AEA0028CDE5 /* Build configuration list for PBXNativeTarget "LinguaCardTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +499,7 @@
 				0911F8631A745AEA0028CDE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

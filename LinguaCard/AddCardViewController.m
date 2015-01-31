@@ -53,15 +53,10 @@
     Card *newCard = [NSEntityDescription insertNewObjectForEntityForName:@"Card" inManagedObjectContext:context];
     
     
-    /*
-     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-     [formatter setDateStyle:@"EEEE"];
-     NSString *weekday = [formatter stringFromDate:chosen];
-     NSString *msg = [[NSString alloc] initWithFormat:@"This is %@", weekday]; */
-    
     newCard.name = self.cardName.text;
+    newCard.otherSide = self.otherSide.text;
     newCard.lesson = _lesson;
-   // [newCard setValue:self.cardName.text forKey:@"name"];
+   
     
     
     

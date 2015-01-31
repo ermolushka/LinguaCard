@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Card" representedClassName="Card" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherSide" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="lesson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ELesson" inverseName="cards" inverseEntity="ELesson" syncable="YES"/>
     </entity>
     <entity name="ELesson" representedClassName="ELesson" syncable="YES">
@@ -9,7 +10,7 @@
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="lesson" inverseEntity="Card" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Card" positionX="-27" positionY="18" width="128" height="73"/>
+        <element name="Card" positionX="-27" positionY="18" width="128" height="90"/>
         <element name="ELesson" positionX="18" positionY="63" width="128" height="73"/>
     </elements>
 </model>

@@ -12,6 +12,8 @@
 @interface AddCardViewController : UIViewController
 @property (strong) ELesson *lesson;
 @property (weak, nonatomic) IBOutlet UITextField *cardName;
+@property (weak, nonatomic) IBOutlet UITextField *otherSide;
+
 - (IBAction)addCard:(id)sender;
 
 @end

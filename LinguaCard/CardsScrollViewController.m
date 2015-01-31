@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSMutableArray *cards;
 
+@property (nonatomic, strong) NSMutableArray *otherSides;
+
 @end
 
 
@@ -89,10 +91,22 @@
     
     self.items = [NSMutableArray array];
     
+    
     for (NSString *name in [self.cards valueForKey:@"name"]) {
         [items addObject:name];
     }
+    
+    self.otherSides = [NSMutableArray array];
+    
+    for (NSString *sides in [self.cards valueForKey:@"otherSide"]){
+        [_otherSides addObject:sides];
+        
+    }
+    
     [self.carousel reloadData];
+    
+    NSLog(@"%@", _otherSides);
+    
    
 }
 
@@ -115,7 +129,7 @@
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-   
+  
     return [self.items count];
     
 }

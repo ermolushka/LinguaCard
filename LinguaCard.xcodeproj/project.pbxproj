@@ -18,8 +18,8 @@
 		0911F8691A745B680028CDE5 /* EnglishLessonsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8681A745B670028CDE5 /* EnglishLessonsTableViewController.m */; };
 		0911F86E1A745DDA0028CDE5 /* CardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F86D1A745DDA0028CDE5 /* CardsTableViewController.m */; };
 		0911F8711A745DEC0028CDE5 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8701A745DEC0028CDE5 /* AddCardViewController.m */; };
-		0911F8741A745E780028CDE5 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8731A745E780028CDE5 /* Card.m */; };
-		0911F8771A745E780028CDE5 /* ELesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8761A745E780028CDE5 /* ELesson.m */; };
+		091586E91A7D331F004B11BE /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 091586E81A7D331F004B11BE /* Card.m */; };
+		091586EC1A7D3320004B11BE /* ELesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 091586EB1A7D3320004B11BE /* ELesson.m */; };
 		095093371A78207200DAF60C /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095093361A78207200DAF60C /* iCarousel.m */; };
 		0950933C1A7821D400DAF60C /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 0950933B1A7821D400DAF60C /* page.png */; };
 		0950933E1A7823C900DAF60C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0950933D1A7823C900DAF60C /* background.png */; };
@@ -57,10 +57,10 @@
 		0911F86D1A745DDA0028CDE5 /* CardsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsTableViewController.m; sourceTree = "<group>"; };
 		0911F86F1A745DEC0028CDE5 /* AddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCardViewController.h; sourceTree = "<group>"; };
 		0911F8701A745DEC0028CDE5 /* AddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCardViewController.m; sourceTree = "<group>"; };
-		0911F8721A745E770028CDE5 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		0911F8731A745E780028CDE5 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
-		0911F8751A745E780028CDE5 /* ELesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELesson.h; sourceTree = "<group>"; };
-		0911F8761A745E780028CDE5 /* ELesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELesson.m; sourceTree = "<group>"; };
+		091586E71A7D331F004B11BE /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		091586E81A7D331F004B11BE /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		091586EA1A7D3320004B11BE /* ELesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELesson.h; sourceTree = "<group>"; };
+		091586EB1A7D3320004B11BE /* ELesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELesson.m; sourceTree = "<group>"; };
 		095093351A78207200DAF60C /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		095093361A78207200DAF60C /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		0950933B1A7821D400DAF60C /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
@@ -119,10 +119,10 @@
 				0911F84B1A745AEA0028CDE5 /* Images.xcassets */,
 				0911F84D1A745AEA0028CDE5 /* LaunchScreen.xib */,
 				0911F8421A745AEA0028CDE5 /* LinguaCard.xcdatamodeld */,
-				0911F8751A745E780028CDE5 /* ELesson.h */,
-				0911F8761A745E780028CDE5 /* ELesson.m */,
-				0911F8721A745E770028CDE5 /* Card.h */,
-				0911F8731A745E780028CDE5 /* Card.m */,
+				091586EA1A7D3320004B11BE /* ELesson.h */,
+				091586EB1A7D3320004B11BE /* ELesson.m */,
+				091586E71A7D331F004B11BE /* Card.h */,
+				091586E81A7D331F004B11BE /* Card.m */,
 				0911F83B1A745AEA0028CDE5 /* Supporting Files */,
 			);
 			path = LinguaCard;
@@ -294,10 +294,10 @@
 				097615831A7A666800FCCBA2 /* CardsScrollViewController.m in Sources */,
 				0911F8691A745B680028CDE5 /* EnglishLessonsTableViewController.m in Sources */,
 				0911F83E1A745AEA0028CDE5 /* main.m in Sources */,
+				091586E91A7D331F004B11BE /* Card.m in Sources */,
 				095093371A78207200DAF60C /* iCarousel.m in Sources */,
+				091586EC1A7D3320004B11BE /* ELesson.m in Sources */,
 				0911F8711A745DEC0028CDE5 /* AddCardViewController.m in Sources */,
-				0911F8741A745E780028CDE5 /* Card.m in Sources */,
-				0911F8771A745E780028CDE5 /* ELesson.m in Sources */,
 				0911F86E1A745DDA0028CDE5 /* CardsTableViewController.m in Sources */,
 				0911F8441A745AEA0028CDE5 /* LinguaCard.xcdatamodeld in Sources */,
 			);

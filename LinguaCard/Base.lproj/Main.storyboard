@@ -165,38 +165,49 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="120" width="97" height="30"/>
+                                    <rect key="frame" x="60" y="120" width="280" height="30"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-nw-5qh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Add card">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="207" width="46" height="30"/>
+                                    <rect key="frame" x="123" y="284" width="154" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="addCard:" destination="yaF-sH-Jgs" eventType="touchUpInside" id="gXG-wD-Fdl"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-B0-bBy">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="184" width="280" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="t4T-Ij-1vb"/>
                                 <exclude reference="P1v-nw-5qh"/>
+                                <exclude reference="0qI-B0-bBy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="t4T-Ij-1vb"/>
                                 <include reference="P1v-nw-5qh"/>
+                                <include reference="0qI-B0-bBy"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="cardName" destination="t4T-Ij-1vb" id="g4b-fl-1DE"/>
+                        <outlet property="otherSide" destination="0qI-B0-bBy" id="ZWU-vH-dFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxf-Np-pxb" userLabel="First Responder" sceneMemberID="firstResponder"/>

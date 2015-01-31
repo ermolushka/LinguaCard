@@ -75,6 +75,12 @@
     //configure carousel
     carousel.type = iCarouselTypeCoverFlow2;
     
+ 
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Card"];
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lesson == %@", self.lesson];
@@ -87,8 +93,7 @@
         [items addObject:name];
     }
     [self.carousel reloadData];
-    //NSLog(@"%i", self.items.count);
-    NSLog(@"%@", [self.cards valueForKey:@"name"]);
+   
 }
 
 - (void)viewDidUnload
@@ -110,7 +115,7 @@
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-    NSLog(@"%i", self.items.count);
+   
     return [self.items count];
     
 }

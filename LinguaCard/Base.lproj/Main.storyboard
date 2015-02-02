@@ -72,35 +72,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="7sZ-PU-bK6">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="800"/>
-                                </variation>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-lK-UYs" customClass="iCarousel">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="736"/>
+                                    <rect key="frame" x="0.0" y="64" width="400" height="461"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="D1j-NR-WBF" id="Vwt-Mz-RWs"/>
                                     <outlet property="delegate" destination="D1j-NR-WBF" id="UaO-vU-RgD"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1b-t8-OIp">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="106" y="636" width="189" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="7sZ-PU-bK6"/>
                                 <exclude reference="s4m-lK-UYs"/>
+                                <exclude reference="H1b-t8-OIp"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="7sZ-PU-bK6"/>
                                 <include reference="s4m-lK-UYs"/>
+                                <include reference="H1b-t8-OIp"/>
                             </mask>
                         </variation>
                     </view>
@@ -113,6 +116,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="carousel" destination="s4m-lK-UYs" id="sbg-CZ-1Db"/>
+                        <outlet property="otherSide" destination="H1b-t8-OIp" id="wJn-kP-9eW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-vr-50k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iwy-6h-lIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086.5" y="1305.75"/>
+            <point key="canvasLocation" x="2119.5" y="1524"/>
         </scene>
         <!--Add Card View Controller-->
         <scene sceneID="3Nz-Ex-CNP">
@@ -288,7 +292,4 @@
             <point key="canvasLocation" x="471" y="405"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="background.png" width="50" height="468"/>
-    </resources>
 </document>

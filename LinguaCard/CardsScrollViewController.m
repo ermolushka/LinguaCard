@@ -136,39 +136,29 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-    UILabel *label = nil;
-    
-    //create new view if no view is available for recycling
-    if (view == nil)
+    UIButton *button = (UIButton *)view;
+    if (button == nil)
     {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
-        view.contentMode = UIViewContentModeCenter;
-        label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        label.tag = 1;
-        [view addSubview:label];
+        //no button available to recycle, so create new one
+        UIImage *image = [UIImage imageNamed:@"page.png"];
+        button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        button.titleLabel.font = [button.titleLabel.font fontWithSize:50];
+        [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
-    else
-    {
-        //get a reference to the label in the recycled view
-        label = (UILabel *)[view viewWithTag:1];
-    }
+    [button setTitle:[NSString stringWithFormat:@"%@", self.items[index]] forState:UIControlStateNormal];
     
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
+    return button;
+}
+
+- (void)buttonTapped:(UIButton *)sender
+{
+    //get item index for button
+    NSInteger index = [carousel indexOfItemViewOrSubview:sender];
     
-    //Card *card = items[index];
-    //[cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
-    //label.text = [card valueForKey:@"name"];
-    label.text = items[index];
-    
-    return view;
+    self.otherSide.text = self.otherSides[index];
 }
 
 

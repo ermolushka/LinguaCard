@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet iCarousel *carousel;
 @property (nonatomic, strong) ELesson *lesson;
 @property (weak, nonatomic) IBOutlet UILabel *otherSide;
+- (IBAction)deleteCard:(id)sender;
 
 @end

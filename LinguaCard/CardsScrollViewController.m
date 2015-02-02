@@ -52,11 +52,11 @@
      {
      [items addObject:@(i)];
      }
-    
-    */
+     
+     */
     
     //items = [self.cards valueForKey:@"name"];
-   
+    
 }
 
 - (void)dealloc
@@ -77,7 +77,7 @@
     //configure carousel
     carousel.type = iCarouselTypeCoverFlow2;
     
- 
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -105,9 +105,9 @@
     
     [self.carousel reloadData];
     
-    NSLog(@"%@", _otherSides);
+    //NSLog(@"%@", _otherSides);
     
-   
+    
 }
 
 - (void)viewDidUnload
@@ -129,7 +129,7 @@
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-  
+    NSLog(@"%i", self.otherSides.count);
     return [self.items count];
     
 }
@@ -169,6 +169,60 @@
     }
 }
 
+
+
+- (IBAction)deleteCard:(id)sender {
+    
+    
+    /*
+    if (self.carousel.numberOfItems > 0)
+    {
+        
+        //NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+        NSInteger index = self.carousel.currentItemIndex;
+        [[self managedObjectContext] deleteObject:[self.items objectAtIndex:(NSUInteger)index]];
+        [[self managedObjectContext ] deleteObject:[self.otherSides objectAtIndex:(NSUInteger)index]];
+        
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        
+        [self.items removeObjectAtIndex:(NSUInteger)index];
+        [self.otherSides removeObjectAtIndex:(NSUInteger)index];
+        
+        
+        [self.carousel removeItemAtIndex:index animated:YES];
+    }
+     
+     */
+    
+    if (self.carousel.numberOfItems > 0)
+    {
+        NSInteger index = self.carousel.currentItemIndex;
+        [[self managedObjectContext] deleteObject:[self.cards objectAtIndex:(NSUInteger)index]];
+        //[[self managedObjectContext] deleteObject:[self.otherSides objectAtIndex:(NSUInteger)index]];
+        
+        NSError *error = nil;
+        if (![[self managedObjectContext] save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove device from table view
+        [self.items removeObjectAtIndex:(NSUInteger)index];
+        self.otherSide.text = nil;
+       // [self.otherSides removeObjectAtIndex:(NSUInteger)index];
+        
+        
+       // [[self managedObjectContext] deleteObject:[self.otherSides objectAtIndex:(NSUInteger)index]];
+        
+        [self.carousel removeItemAtIndex:index animated:YES];
+    }
+    
+}
 
 
 @end

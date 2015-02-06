@@ -13,7 +13,7 @@
 
 @interface EnglishLessonsTableViewController ()
 
-@property (strong) NSMutableArray *notes;
+@property (strong) NSMutableArray *lessons;
 
 @end
 
@@ -49,7 +49,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"ELesson"];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     fetchRequest.sortDescriptors = @[sortDescriptor];
-    self.notes = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.lessons = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [self.tableView reloadData];
 }
@@ -68,15 +68,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.notes.count;
+    return self.lessons.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NSManagedObject *note = [self.notes objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [note valueForKey:@"name"]]];
+    NSManagedObject *lesson = [self.lessons objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
     
     return cell;
 }
@@ -96,7 +96,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [context deleteObject:[self.notes objectAtIndex:indexPath.row]];
+        [context deleteObject:[self.lessons objectAtIndex:indexPath.row]];
         
         NSError *error = nil;
         if (![context save:&error]) {
@@ -105,7 +105,7 @@
         }
         
         // Remove device from table view
-        [self.notes removeObjectAtIndex:indexPath.row];
+        [self.lessons removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     
@@ -136,7 +136,7 @@
     if ([segue.identifier isEqualToString:@"showCard"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CardsTableViewController *destViewController = segue.destinationViewController;
-        destViewController.lesson = [self.notes objectAtIndex:indexPath.row];
+        destViewController.lesson = [self.lessons objectAtIndex:indexPath.row];
     }
 }
 

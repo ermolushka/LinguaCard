@@ -15,6 +15,8 @@
 
 @property (strong) NSMutableArray *cards;
 
+@property (nonatomic, strong) NSMutableArray *otherSides;
+
 @end
 
 @implementation CardsTableViewController
@@ -51,8 +53,14 @@
     [fetchRequest setPredicate:predicate];
     self.cards = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
+    for (NSString *sides in [self.cards valueForKey:@"otherSide"]){
+        [_otherSides addObject:sides];
+        
+    }
     
     [self.tableView reloadData];
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +77,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+
     return self.cards.count;
 }
 
@@ -80,7 +89,7 @@
     
     Card *card = [self.cards objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
-    
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
     return cell;
 }
 

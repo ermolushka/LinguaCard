@@ -35,6 +35,8 @@
     self.title = @"Заметки";
     
     
+
+    
     
     
 }
@@ -51,6 +53,8 @@
     fetchRequest.sortDescriptors = @[sortDescriptor];
     self.lessons = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
+    
+    
     [self.tableView reloadData];
 }
 
@@ -59,27 +63,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return self.lessons.count;
+    return [self.lessons count];
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    
     NSManagedObject *lesson = [self.lessons objectAtIndex:indexPath.row];
+   
+    
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
     
     return cell;
 }
+
+
 
 
 /*

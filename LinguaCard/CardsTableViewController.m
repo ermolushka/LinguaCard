@@ -88,10 +88,34 @@
     // Configure the cell...
     
     Card *card = [self.cards objectAtIndex:indexPath.row];
+    
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
     [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+    cell.detailTextLabel.hidden = YES;
+    
+    
     return cell;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView beginUpdates];
+   
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
+    Card *card = [self.cards objectAtIndex:indexPath.row];
+    
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+    cell.detailTextLabel.hidden = NO;
+    
+    
+    [self.tableView endUpdates];
+
+    
+}
+
+
 
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

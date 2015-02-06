@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EnglishLessonsTableViewController : UITableViewController
+@interface EnglishLessonsTableViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate>
 
+@property (nonatomic, strong) NSMutableArray *searchResult;
 @end

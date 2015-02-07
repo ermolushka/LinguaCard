@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ELesson.h"
 
-@interface AddCardViewController : UIViewController
+@interface AddCardViewController : UIViewController 
 @property (strong) ELesson *lesson;
 @property (weak, nonatomic) IBOutlet UITextField *cardName;
 @property (weak, nonatomic) IBOutlet UITextField *otherSide;

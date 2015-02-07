@@ -9,6 +9,7 @@
 #import "AddCardViewController.h"
 #import "Card.h"
 
+
 @interface AddCardViewController ()
 
 @end
@@ -28,12 +29,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _cardName.delegate = self;
+    _otherSide.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    return !([newString length] > 5);
 }
 
 /*

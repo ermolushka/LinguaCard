@@ -9,6 +9,7 @@
 #import "EnglishLessonsTableViewController.h"
 #import "CardsTableViewController.h"
 #import <CoreData/CoreData.h>
+#import "ELesson.h"
 
 
 @interface EnglishLessonsTableViewController ()
@@ -85,10 +86,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     
-    NSManagedObject *lesson = [self.lessons objectAtIndex:indexPath.row];
+    ELesson *lesson = [self.lessons objectAtIndex:indexPath.row];
    
     
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i %@", [lesson.cards count], @"cards"];
     
     return cell;
 }

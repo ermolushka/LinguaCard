@@ -56,19 +56,10 @@
     
     // Create a new managed object
     ELesson *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"ELesson" inManagedObjectContext:context];
-    
- 
-    /*
-     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-     [formatter setDateStyle:@"EEEE"];
-     NSString *weekday = [formatter stringFromDate:chosen];
-     NSString *msg = [[NSString alloc] initWithFormat:@"This is %@", weekday]; */
+   
     
     [newNote setValue:self.lessonName.text forKey:@"name"];
 
-    
-    
-    
     
     NSError *error = nil;
     // Save the object to persistent store

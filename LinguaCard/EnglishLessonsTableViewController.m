@@ -36,10 +36,6 @@
     self.title = @"Заметки";
     
     
-
-    
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -87,12 +83,16 @@
     
     
     ELesson *lesson = [self.lessons objectAtIndex:indexPath.row];
-   
+    
     
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i %@", [lesson.cards count], @"cards"];
-    
+    if ([lesson.cards count] == 1) {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%i %@", [lesson.cards count], @"card"];
+    } else{
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%i %@", [lesson.cards count], @"cards"];
+    }
     return cell;
 }
 

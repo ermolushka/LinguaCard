@@ -29,6 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.cardName.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.otherSide.clearButtonMode = UITextFieldViewModeWhileEditing;
     _cardName.delegate = self;
     _otherSide.delegate = self;
     

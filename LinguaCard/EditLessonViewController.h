@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface EditLessonViewController : UIViewController
+@interface EditLessonViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *editName;
 @property (strong) NSManagedObject *lesson;

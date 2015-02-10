@@ -32,6 +32,22 @@
     if (self.lesson) {
         [self.editName setText:[self.lesson valueForKey:@"name"]];
     }
+    
+    self.editName.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.editName.delegate = self;
+    
+    // Do any additional setup after loading the view.
+    [self.editName becomeFirstResponder];
+}
+
+
+
+
+-(BOOL)textFieldShouldClear:(UITextField *)textField{
+    
+    self.editName.hidden = NO;
+    self.editName.text = @"";
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

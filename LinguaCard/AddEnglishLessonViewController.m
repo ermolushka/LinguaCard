@@ -29,10 +29,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lessonName.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.lessonName.delegate = self;
+    
     // Do any additional setup after loading the view.
     [self.lessonName becomeFirstResponder];
 }
 
+
+-(BOOL)textFieldShouldClear:(UITextField *)textField{
+
+    self.lessonName.hidden = NO;
+    self.lessonName.text = @"";
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

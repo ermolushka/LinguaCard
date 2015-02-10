@@ -10,6 +10,7 @@
 #import "AddCardViewController.h"
 #import <CoreData/CoreData.h>
 #import "Card.h"
+#import "EditCardViewController.h"
 
 
 @interface CardsTableViewController ()
@@ -40,6 +41,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,16 +57,18 @@
 
     [fetchRequest setPredicate:predicate];
     self.cards = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
+   
+    /*
     for (NSString *sides in [self.cards valueForKey:@"otherSide"]){
-        [_otherSides addObject:sides];
+        [self.otherSides addObject:sides];
         
     }
-    
+    */
     [self.tableView reloadData];
     
-   
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -80,7 +84,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-
+    
     return self.cards.count;
 }
 
@@ -114,6 +118,8 @@
     
     
     [self.tableView endUpdates];
+    
+  
 }
 
 
@@ -138,11 +144,43 @@
     
 }
 
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *edit = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [self performSegueWithIdentifier:@"editCard" sender:indexPath];
+    }];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [context deleteObject:[self.cards objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove device from table view
+        [self.cards removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+    
+    return @[deleteAction, edit];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addCard"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         AddCardViewController *destViewController = segue.destinationViewController;
         destViewController.lesson = _lesson;
+    }else if ([[segue identifier] isEqualToString:@"editCard"]) {
+        NSIndexPath* indexPath = (NSIndexPath*)sender;
+        NSManagedObject *selectedCard = [self.cards objectAtIndex:indexPath.row];
+        NSManagedObject *side = [self.cards objectAtIndex:indexPath.row];
+        EditCardViewController *destViewController = segue.destinationViewController;
+        destViewController.name = selectedCard;
+        destViewController.otherSide = side;
     }
 }
 

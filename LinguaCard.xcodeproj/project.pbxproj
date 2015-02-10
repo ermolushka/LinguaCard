@@ -20,6 +20,7 @@
 		0911F8711A745DEC0028CDE5 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0911F8701A745DEC0028CDE5 /* AddCardViewController.m */; };
 		091586E91A7D331F004B11BE /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 091586E81A7D331F004B11BE /* Card.m */; };
 		091586EC1A7D3320004B11BE /* ELesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 091586EB1A7D3320004B11BE /* ELesson.m */; };
+		0928CCF81A8A92DB005DFCCC /* EditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0928CCF71A8A92DB005DFCCC /* EditCardViewController.m */; };
 		09ABCD201A8A42A9006700FA /* EditLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ABCD1F1A8A42A9006700FA /* EditLessonViewController.m */; };
 		09B9B8E91A88DF88003A9D78 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 09B9B8E81A88DF88003A9D78 /* Podfile */; };
 		432BE2632FDBD4D6FA40E2D7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD975ADD7C79B7EA924A35E /* libPods.a */; };
@@ -60,6 +61,8 @@
 		091586E81A7D331F004B11BE /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		091586EA1A7D3320004B11BE /* ELesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELesson.h; sourceTree = "<group>"; };
 		091586EB1A7D3320004B11BE /* ELesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELesson.m; sourceTree = "<group>"; };
+		0928CCF61A8A92DB005DFCCC /* EditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCardViewController.h; sourceTree = "<group>"; };
+		0928CCF71A8A92DB005DFCCC /* EditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCardViewController.m; sourceTree = "<group>"; };
 		09ABCD1E1A8A42A9006700FA /* EditLessonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditLessonViewController.h; sourceTree = "<group>"; };
 		09ABCD1F1A8A42A9006700FA /* EditLessonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditLessonViewController.m; sourceTree = "<group>"; };
 		09B9B8E81A88DF88003A9D78 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				09ABCD1F1A8A42A9006700FA /* EditLessonViewController.m */,
 				0911F86F1A745DEC0028CDE5 /* AddCardViewController.h */,
 				0911F8701A745DEC0028CDE5 /* AddCardViewController.m */,
+				0928CCF61A8A92DB005DFCCC /* EditCardViewController.h */,
+				0928CCF71A8A92DB005DFCCC /* EditCardViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				0911F8411A745AEA0028CDE5 /* AppDelegate.m in Sources */,
 				0911F8691A745B680028CDE5 /* EnglishLessonsTableViewController.m in Sources */,
 				0911F83E1A745AEA0028CDE5 /* main.m in Sources */,
+				0928CCF81A8A92DB005DFCCC /* EditCardViewController.m in Sources */,
 				091586E91A7D331F004B11BE /* Card.m in Sources */,
 				091586EC1A7D3320004B11BE /* ELesson.m in Sources */,
 				0911F8711A745DEC0028CDE5 /* AddCardViewController.m in Sources */,

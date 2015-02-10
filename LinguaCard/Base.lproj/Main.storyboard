@@ -55,83 +55,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0lf-HA-G8f" kind="show" identifier="editLesson" id="y9d-1H-AmR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDP-lq-hDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389" y="405"/>
-        </scene>
-        <!--Cards Scroll View Controller-->
-        <scene sceneID="cDi-ue-prm">
-            <objects>
-                <viewController id="D1j-NR-WBF" customClass="CardsScrollViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3fe-Lt-SH1"/>
-                        <viewControllerLayoutGuide type="bottom" id="E66-Gj-Mso"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ver-Ed-lf2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4m-lK-UYs" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="217" width="400" height="308"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="D1j-NR-WBF" id="Vwt-Mz-RWs"/>
-                                    <outlet property="delegate" destination="D1j-NR-WBF" id="UaO-vU-RgD"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1b-t8-OIp">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="1" green="0.41684806969999999" blue="0.37058726850000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="97" y="533" width="189" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rl-1u-X6u">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="120" y="125" width="160" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="deleteCard:" destination="D1j-NR-WBF" eventType="touchUpInside" id="FeX-3n-2Q1"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="s4m-lK-UYs"/>
-                                <exclude reference="H1b-t8-OIp"/>
-                                <exclude reference="6rl-1u-X6u"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="s4m-lK-UYs"/>
-                                <include reference="H1b-t8-OIp"/>
-                                <include reference="6rl-1u-X6u"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="gAS-nv-g09">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eKV-0k-79s"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="carousel" destination="s4m-lK-UYs" id="sbg-CZ-1Db"/>
-                        <outlet property="otherSide" destination="H1b-t8-OIp" id="wJn-kP-9eW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-vr-50k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1444.5" y="1126.5"/>
+            <point key="canvasLocation" x="835.5" y="405"/>
         </scene>
         <!--Cards Table View Controller-->
         <scene sceneID="LgW-T7-VYM">
@@ -184,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iwy-6h-lIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119.5" y="716.25"/>
+            <point key="canvasLocation" x="2119.5" y="803.25"/>
         </scene>
         <!--Add Card View Controller-->
         <scene sceneID="3Nz-Ex-CNP">
@@ -250,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxf-Np-pxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848.5" y="505.5"/>
+            <point key="canvasLocation" x="2923.5" y="516"/>
         </scene>
         <!--Add English Lesson View Controller-->
         <scene sceneID="lbw-a3-ouA">
@@ -305,7 +235,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpS-V8-fn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119.5" y="49.5"/>
+            <point key="canvasLocation" x="1567.5" y="-525"/>
+        </scene>
+        <!--Edit Lesson View Controller-->
+        <scene sceneID="qpo-8q-8jP">
+            <objects>
+                <viewController id="0lf-HA-G8f" customClass="EditLessonViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I5c-tH-vbZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="VYw-FO-zmS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jay-ED-gQa">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vg4-yF-e9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1567.5" y="129.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="snU-hm-L53">
@@ -323,7 +270,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuA-Um-phG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="405"/>
+            <point key="canvasLocation" x="117" y="405"/>
         </scene>
     </scenes>
 </document>

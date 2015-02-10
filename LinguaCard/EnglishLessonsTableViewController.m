@@ -109,6 +109,8 @@
 
 
 // Override to support editing the table view.
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSManagedObjectContext *context = [self managedObjectContext];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -128,6 +130,30 @@
     
 }
 
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *edit = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [self performSegueWithIdentifier:@"editLesson" sender:nil];
+    }];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [context deleteObject:[self.lessons objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove device from table view
+        [self.lessons removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+
+    return @[deleteAction, edit];
+}
 
 /*
  // Override to support rearranging the table view.

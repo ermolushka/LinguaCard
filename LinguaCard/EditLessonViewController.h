@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface EditLessonViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextField *editName;
+@property (strong) NSManagedObject *lesson;
+
+
+- (IBAction)save:(id)sender;
+- (IBAction)cancel:(id)sender;
+
 
 @end

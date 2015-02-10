@@ -247,12 +247,63 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jay-ED-gQa">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4O-Ld-k8R">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="64" y="143" width="274" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-MU-3gs">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="178" y="209" width="34" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="save:" destination="0lf-HA-G8f" eventType="touchUpInside" id="qY4-UL-0z7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbu-4I-7CO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="264" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancel:" destination="0lf-HA-G8f" eventType="touchUpInside" id="vg4-KO-L3d"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="h4O-Ld-k8R"/>
+                                <exclude reference="ZmK-MU-3gs"/>
+                                <exclude reference="Dbu-4I-7CO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="h4O-Ld-k8R"/>
+                                <include reference="ZmK-MU-3gs"/>
+                                <include reference="Dbu-4I-7CO"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="editName" destination="h4O-Ld-k8R" id="QbB-gc-hnm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vg4-yF-e9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1567.5" y="129.75"/>
+            <point key="canvasLocation" x="1722" y="163.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="snU-hm-L53">

@@ -7,6 +7,8 @@
 //
 
 #import "EditLessonViewController.h"
+#import <CoreData/CoreData.h>
+#import "ELesson.h"
 
 @interface EditLessonViewController ()
 
@@ -14,9 +16,22 @@
 
 @implementation EditLessonViewController
 
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if (self.lesson) {
+        [self.editName setText:[self.lesson valueForKey:@"name"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +49,27 @@
 }
 */
 
+- (IBAction)save:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (self.lesson) {
+        // Update existing device
+        [self.lesson setValue:self.editName.text forKey:@"name"];
+      
+    }
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+   
+    
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

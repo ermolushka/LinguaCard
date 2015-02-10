@@ -10,6 +10,7 @@
 #import "CardsTableViewController.h"
 #import <CoreData/CoreData.h>
 #import "ELesson.h"
+#import "EditLessonViewController.h"
 
 
 @interface EnglishLessonsTableViewController ()
@@ -37,6 +38,8 @@
     
     
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -133,7 +136,7 @@
 
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewRowAction *edit = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        [self performSegueWithIdentifier:@"editLesson" sender:nil];
+        [self performSegueWithIdentifier:@"editLesson" sender:indexPath];
     }];
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -151,7 +154,7 @@
         [self.lessons removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }];
-
+    
     return @[deleteAction, edit];
 }
 
@@ -176,17 +179,18 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
     if ([segue.identifier isEqualToString:@"showCard"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CardsTableViewController *destViewController = segue.destinationViewController;
         destViewController.lesson = [self.lessons objectAtIndex:indexPath.row];
+    } else if ([[segue identifier] isEqualToString:@"editLesson"]) {
+        NSIndexPath* indexPath = (NSIndexPath*)sender;
+        NSManagedObject *selectedLesson = [self.lessons objectAtIndex:indexPath.row];
+        EditLessonViewController *destViewController = segue.destinationViewController;
+        destViewController.lesson = selectedLesson;
     }
 }
-
-
-
-
-
-
 
 @end

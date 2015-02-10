@@ -31,6 +31,8 @@
     [super viewDidLoad];
     _cardName.delegate = self;
     _otherSide.delegate = self;
+    
+    [self.cardName becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +44,13 @@
 {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return !([newString length] > 5);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if(theTextField == _cardName){
+        [_otherSide becomeFirstResponder];
+    }
+    return YES;
 }
 
 /*

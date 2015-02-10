@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEnglishLessonViewController : UIViewController
+@interface AddEnglishLessonViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *lessonName;
 - (IBAction)addLesson:(id)sender;
 

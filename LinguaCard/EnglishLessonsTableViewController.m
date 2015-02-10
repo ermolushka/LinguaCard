@@ -88,10 +88,10 @@
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
     
     if ([lesson.cards count] == 1) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%i %@", [lesson.cards count], @"card"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"card"];
     } else{
         
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%i %@", [lesson.cards count], @"cards"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"cards"];
     }
     return cell;
 }

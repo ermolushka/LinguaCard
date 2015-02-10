@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "Card.h"
 
+
 @interface CardsTableViewController ()
 
 @property (strong) NSMutableArray *cards;
@@ -113,8 +114,6 @@
     
     
     [self.tableView endUpdates];
-
-    
 }
 
 

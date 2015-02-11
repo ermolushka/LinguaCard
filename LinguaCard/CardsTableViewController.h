@@ -13,5 +13,6 @@
 @interface CardsTableViewController : UITableViewController
 
 @property (nonatomic, strong) ELesson *lesson;
+@property (nonatomic, strong) NSString *lessonName;
 
 @end

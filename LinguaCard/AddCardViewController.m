@@ -90,4 +90,9 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)cancel:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

@@ -34,10 +34,24 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title = @"Заметки";
+    
+    self.title = @"Коллекции";
+    
+    
+    UINavigationBar *bar = [self.navigationController navigationBar];
+    [bar setTintColor:[UIColor whiteColor]];
+    
+    UIColor *red = [UIColor whiteColor];
+    NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    [navBarTextAttributes setObject:red forKey:NSForegroundColorAttributeName ];
+    
+    self.navigationController.navigationBar.titleTextAttributes = navBarTextAttributes;
+   
     
     
 }
+
 
 
 
@@ -91,10 +105,10 @@
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
     
     if ([lesson.cards count] == 1) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"card"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточка"];
     } else{
         
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"cards"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточек"];
     }
     return cell;
 }
@@ -135,13 +149,13 @@
 
 
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewRowAction *edit = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    UITableViewRowAction *edit = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"редактировать" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         [self performSegueWithIdentifier:@"editLesson" sender:indexPath];
     }];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"удалить"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         [context deleteObject:[self.lessons objectAtIndex:indexPath.row]];
         
         NSError *error = nil;
@@ -185,6 +199,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CardsTableViewController *destViewController = segue.destinationViewController;
         destViewController.lesson = [self.lessons objectAtIndex:indexPath.row];
+        destViewController.lessonName = [[self.lessons objectAtIndex:indexPath.row]valueForKey:@"name"];
     } else if ([[segue identifier] isEqualToString:@"editLesson"]) {
         NSIndexPath* indexPath = (NSIndexPath*)sender;
         NSManagedObject *selectedLesson = [self.lessons objectAtIndex:indexPath.row];

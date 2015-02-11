@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--English Lessons Table View Controller-->
+        <!--Коллекции-->
         <scene sceneID="1vi-LS-hSf">
             <objects>
                 <tableViewController id="3rB-Yv-TCi" customClass="EnglishLessonsTableViewController" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             <outlet property="delegate" destination="3rB-Yv-TCi" id="yTj-eD-3oq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yaG-3n-rgY">
+                    <navigationItem key="navigationItem" title="Коллекции" id="yaG-3n-rgY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8rh-L7-biI">
                             <connections>
                                 <segue destination="FJ5-N1-NTu" kind="show" id="jpX-pK-v7p"/>
@@ -128,6 +128,7 @@
                         <viewControllerLayoutGuide type="bottom" id="022-oE-uKY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0zb-Gy-Knd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3X-LK-maI">
@@ -146,28 +147,50 @@
                                     <rect key="frame" x="60" y="202" width="280" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCn-ez-r3Q">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="338" width="48" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="cancel:" destination="l7M-X4-5bw" eventType="touchUpInside" id="qlX-8M-Ee1"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIM-kE-d5O">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Save">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Обновить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="184" y="270" width="34" height="30"/>
+                                    <rect key="frame" x="60" y="270" width="280" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="save:" destination="l7M-X4-5bw" eventType="touchUpInside" id="Lhu-z6-A0e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y07-7P-xrG">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="91" width="118" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Перевод" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQs-Rl-YEe">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="173" width="97" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCn-ez-r3Q">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.1698951474" blue="0.2534885482" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Отменить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="325" width="280" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancel:" destination="l7M-X4-5bw" eventType="touchUpInside" id="qlX-8M-Ee1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -176,16 +199,20 @@
                             <mask key="subviews">
                                 <exclude reference="t3X-LK-maI"/>
                                 <exclude reference="ivS-oy-mnq"/>
-                                <exclude reference="fCn-ez-r3Q"/>
                                 <exclude reference="DIM-kE-d5O"/>
+                                <exclude reference="y07-7P-xrG"/>
+                                <exclude reference="XQs-Rl-YEe"/>
+                                <exclude reference="fCn-ez-r3Q"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="t3X-LK-maI"/>
                                 <include reference="ivS-oy-mnq"/>
-                                <include reference="fCn-ez-r3Q"/>
                                 <include reference="DIM-kE-d5O"/>
+                                <include reference="y07-7P-xrG"/>
+                                <include reference="XQs-Rl-YEe"/>
+                                <include reference="fCn-ez-r3Q"/>
                             </mask>
                         </variation>
                     </view>
@@ -218,40 +245,80 @@
                                     <rect key="frame" x="60" y="120" width="280" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-nw-5qh">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Add card">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="123" y="284" width="154" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="addCard:" destination="yaF-sH-Jgs" eventType="touchUpInside" id="gXG-wD-Fdl"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-B0-bBy">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="60" y="184" width="280" height="30"/>
+                                    <rect key="frame" x="60" y="196" width="280" height="30"/>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3U-EJ-fmG">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="91" width="123" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Перевод" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0I-qZ-rcP">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="167" width="78" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhI-Yr-SyT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Отменить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="306" width="280" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancel:" destination="yaF-sH-Jgs" eventType="touchUpInside" id="SRT-in-fvJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-nw-5qh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.1698951474" blue="0.2534885482" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Добавить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="60" y="250" width="280" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addCard:" destination="yaF-sH-Jgs" eventType="touchUpInside" id="gXG-wD-Fdl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="t4T-Ij-1vb"/>
-                                <exclude reference="P1v-nw-5qh"/>
                                 <exclude reference="0qI-B0-bBy"/>
+                                <exclude reference="M3U-EJ-fmG"/>
+                                <exclude reference="C0I-qZ-rcP"/>
+                                <exclude reference="FhI-Yr-SyT"/>
+                                <exclude reference="P1v-nw-5qh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="t4T-Ij-1vb"/>
-                                <include reference="P1v-nw-5qh"/>
                                 <include reference="0qI-B0-bBy"/>
+                                <include reference="M3U-EJ-fmG"/>
+                                <include reference="C0I-qZ-rcP"/>
+                                <include reference="FhI-Yr-SyT"/>
+                                <include reference="P1v-nw-5qh"/>
                             </mask>
                         </variation>
                     </view>
@@ -262,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxf-Np-pxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2923.5" y="516"/>
+            <point key="canvasLocation" x="2845.5" y="505.5"/>
         </scene>
         <!--Add English Lesson View Controller-->
         <scene sceneID="lbw-a3-ouA">
@@ -341,23 +408,36 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-MU-3gs">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Save">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Создать">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="178" y="209" width="34" height="30"/>
+                                    <rect key="frame" x="64" y="209" width="274" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="save:" destination="0lf-HA-G8f" eventType="touchUpInside" id="qY4-UL-0z7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovx-EE-lAh">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="64" y="114" width="120" height="21"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbu-4I-7CO">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Cancel">
+                                <color key="backgroundColor" red="1" green="0.16989514743820122" blue="0.2534885481612219" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Отменить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="172" y="264" width="48" height="30"/>
+                                    <rect key="frame" x="64" y="252" width="274" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="cancel:" destination="0lf-HA-G8f" eventType="touchUpInside" id="vg4-KO-L3d"/>
@@ -369,6 +449,7 @@
                             <mask key="subviews">
                                 <exclude reference="h4O-Ld-k8R"/>
                                 <exclude reference="ZmK-MU-3gs"/>
+                                <exclude reference="Ovx-EE-lAh"/>
                                 <exclude reference="Dbu-4I-7CO"/>
                             </mask>
                         </variation>
@@ -376,6 +457,7 @@
                             <mask key="subviews">
                                 <include reference="h4O-Ld-k8R"/>
                                 <include reference="ZmK-MU-3gs"/>
+                                <include reference="Ovx-EE-lAh"/>
                                 <include reference="Dbu-4I-7CO"/>
                             </mask>
                         </variation>

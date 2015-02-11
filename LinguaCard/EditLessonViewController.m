@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Редактирование";
     if (self.lesson) {
         [self.editName setText:[self.lesson valueForKey:@"name"]];
     }

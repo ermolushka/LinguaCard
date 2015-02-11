@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *otherSide;
 
 - (IBAction)addCard:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end

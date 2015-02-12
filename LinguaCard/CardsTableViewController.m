@@ -86,42 +86,89 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    
-    return self.cards.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_searchResults count];
+        
+    } else {
+        return [self.cards count];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
-    Card *card = [self.cards objectAtIndex:indexPath.row];
     
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
-    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
-    cell.detailTextLabel.hidden = YES;
+    
+    
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        Card *card = [self.searchResults objectAtIndex:indexPath.row];
+        
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+        cell.detailTextLabel.hidden = YES;
+        
+        
+    } else {
+        Card *card = [self.cards objectAtIndex:indexPath.row];
+        
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+        cell.detailTextLabel.hidden = YES;
+    }
+    
+    
     
     
     return cell;
 }
 
 
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    _searchResults = [self.cards filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     [self.tableView beginUpdates];
    
-     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
-    Card *card = [self.cards objectAtIndex:indexPath.row];
-    
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
-    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
-    cell.detailTextLabel.hidden = NO;
-    
+        
+        
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
+        Card *card = [self.cards objectAtIndex:indexPath.row];
+        
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+        cell.detailTextLabel.hidden = NO;
+     
     
     [self.tableView endUpdates];
     
-  
+    
+    
 }
 
 

@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) ELesson *lesson;
 @property (nonatomic, strong) NSString *lessonName;
+@property (nonatomic, strong) NSMutableArray *searchResults;
 
 @end

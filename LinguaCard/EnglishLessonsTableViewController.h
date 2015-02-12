@@ -10,5 +10,5 @@
 
 @interface EnglishLessonsTableViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate>
 
-@property (nonatomic, strong) NSMutableArray *searchResult;
+@property (nonatomic, strong) NSMutableArray *searchResults;
 @end

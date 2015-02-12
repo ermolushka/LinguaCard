@@ -90,15 +90,46 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.lessons count];
-    
+    //return [self.lessons count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_searchResults count];
+        
+    } else {
+        return [_lessons count];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     
+    
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        ELesson *lesson = [_searchResults objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
+        
+        if ([lesson.cards count] == 1) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточка"];
+        } else{
+            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточек"];
+        }
+    } else {
+        ELesson *lesson = [self.lessons objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [lesson valueForKey:@"name"]]];
+        
+        if ([lesson.cards count] == 1) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточка"];
+        } else{
+            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточек"];
+        }
+    }
+    
+   
+    /*
     ELesson *lesson = [self.lessons objectAtIndex:indexPath.row];
     
     
@@ -110,6 +141,7 @@
         
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)[lesson.cards count], @"карточек"];
     }
+     */
     return cell;
 }
 
@@ -171,6 +203,28 @@
     
     return @[deleteAction, edit];
 }
+
+
+
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    _searchResults = [_lessons filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
+
+
 
 /*
  // Override to support rearranging the table view.

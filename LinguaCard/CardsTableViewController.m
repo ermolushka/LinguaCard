@@ -38,6 +38,7 @@
     
     self.title = self.lessonName;
     
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,16 +57,16 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Card"];
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lesson == %@", self.lesson];
     [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]]];
-
+    
     [fetchRequest setPredicate:predicate];
     self.cards = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-   
+    
     /*
-    for (NSString *sides in [self.cards valueForKey:@"otherSide"]){
-        [self.otherSides addObject:sides];
-        
-    }
-    */
+     for (NSString *sides in [self.cards valueForKey:@"otherSide"]){
+     [self.otherSides addObject:sides];
+     
+     }
+     */
     [self.tableView reloadData];
     
 }
@@ -87,7 +88,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [_searchResults count];
+        return [self.searchResults count];
         
     } else {
         return [self.cards count];
@@ -153,21 +154,24 @@
 {
     
     
+    
     [self.tableView beginUpdates];
-   
-        
-        
-        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
-        Card *card = [self.cards objectAtIndex:indexPath.row];
-        
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        Card *card = [self.searchResults objectAtIndex:indexPath.row];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
         [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
         cell.detailTextLabel.hidden = NO;
-     
+    } else {
+        Card *card = [self.cards objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+        cell.detailTextLabel.hidden = NO;
+    }
+    
     
     [self.tableView endUpdates];
-    
-    
     
 }
 

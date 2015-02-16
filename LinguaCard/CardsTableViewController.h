@@ -10,7 +10,7 @@
 #import "ELesson.h"
 #import "SWTableViewCell.h"
 
-@interface CardsTableViewController : UITableViewController
+@interface CardsTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) ELesson *lesson;
 @property (nonatomic, strong) NSString *lessonName;

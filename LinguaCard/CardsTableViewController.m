@@ -38,7 +38,6 @@
     
     self.title = self.lessonName;
     
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -99,11 +98,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
-    
-    
-    
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Card *card = [self.searchResults objectAtIndex:indexPath.row];
@@ -132,7 +126,7 @@
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-    _searchResults = [self.cards filteredArrayUsingPredicate:resultPredicate];
+    self.searchResults = [self.cards filteredArrayUsingPredicate:resultPredicate];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -157,17 +151,45 @@
     
     [self.tableView beginUpdates];
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //[self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
     if (tableView == self.searchDisplayController.searchResultsTableView) {
+        
         Card *card = [self.searchResults objectAtIndex:indexPath.row];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
         [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
         cell.detailTextLabel.hidden = NO;
     } else {
+        
         Card *card = [self.cards objectAtIndex:indexPath.row];
         [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
         [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
         cell.detailTextLabel.hidden = NO;
+    }
+    
+    
+    [self.tableView endUpdates];
+    
+}
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.tableView beginUpdates];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //[self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        
+        Card *card = [self.searchResults objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+        cell.detailTextLabel.hidden = YES;
+    } else {
+        
+        Card *card = [self.cards objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"name"]]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [card valueForKey:@"otherSide"]]];
+        cell.detailTextLabel.hidden = YES;
     }
     
     

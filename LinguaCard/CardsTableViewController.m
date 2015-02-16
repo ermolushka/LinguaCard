@@ -98,6 +98,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Card Cell" forIndexPath:indexPath];
     
+    /*
+    cell.backgroundColor = indexPath.row % 2
+    ? [UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0]
+    : [UIColor whiteColor];
+    */
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Card *card = [self.searchResults objectAtIndex:indexPath.row];
